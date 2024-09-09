@@ -40,7 +40,9 @@ while True:
                         break
                 else:
                     print("you decide to leave")
-                    
+            
+            elif talktoguy == "turn":
+                break
 
             while True:
                 Choice_a1 = input("you see a stand selling multiple items (look/leave)")
@@ -51,35 +53,43 @@ while True:
                     paper = item("a piece of paper", "an old looking scrap of paper.", "$1000")
                     print(snowgrass.description, snowgrass.price)
                     print(paper.description, paper.price)
+                    
 
                     while True:   
                         choice_a2 = input("you currently have: $" + str(money) + " dollars. what would you like to buy? (snowgrass/paper/nothing)")
                         if choice_a2 == "snowgrass":
-                            money -= 3
-                            snowgrass.reciveitem("snow grass")
-                            inventory = snowgrass.inventory
-                            print(inventory)
-                            print("you leave the stand.")
-                            break
+                            if money >= 3:
+                                money -= 3
+                                snowgrass.reciveitem("snow grass")
+                                inventory = snowgrass.inventory
+                                print(inventory)
+                                print("you leave the stand.")
+                                break
+                            else:
+                                print("you don't have enough money")
+                                break #ai filled in
 
                         elif choice_a2 == "paper":
-                            money -= 1000
-                            paper.reciveitem("paper")
-                            inventory = paper.inventory
-                            print(inventory)
-                            print("you bought the paper. It seems there is something written on the back")
-                            print("it says 'magic.' this might be a clue for something")
-                            break
+                            if money >= 1000:
+                                money -= 1000
+                                paper.reciveitem("paper")
+                                inventory = paper.inventory
+                                print(inventory)
+                                print("you bought the paper. It seems there is something written on the back")
+                                print("it says 'magic.' this might be a clue for something")
+                                break
 
+                            else:
+                                print("you don't have enough money")
+                                break
                         else:
-                            print("you leave the stand.")
                             break
-                    if inventory == ['', 'paper']:
+                    if inventory == ['paper']:
                         break
 
                     print("you conitinue walking and encounter a wombat in the middle of the path. It looks hungry. Maybe you could give it something.")
                     print("inventory: " + str(inventory))
-                    if inventory == ['', 'snow grass']:
+                    if inventory == ['snow grass']:
                         print("you might have something he might like.")
                         feed = input("feed the wombat snow grass? (y/n)")
                         if feed == "y":
@@ -94,25 +104,31 @@ while True:
                             break
                     else :
                         print("you have nothing to give the wombat. You turn back.")
+                elif Choice_a1 == "leave":
+                    break
 
 
     elif choice_1 == "turn":
         print("You turn to see what looks like a wandering riddle master.")
-        Character = Character("Riddle Master", "'greetings...'")
-        print(Character.diaogue + " said the riddle master")
-        Choice_b1 = input("'Would you like to solve my riddle? If you do, you shall recieve a special item...' (play/refuse)")
-        if Choice_b1 == "play":
-            print("'fantastic. We shall begin.'")
-            playerwin = playwordle()
-            if playerwin == True:
-                print("'it seems you completed my riddle, congratulations.'")
-                print("you return to the field")
+        riddlemaster = Character("Riddle Master", "'greetings...'", "cake", [])
+        riddlemasterinteraction = riddlemaster.interact("y") 
+
+        if riddlemasterinteraction == True:
+            Choice_b1 = input("'Would you like to solve my riddle? If you do, you shall recieve a special item...' (play/refuse)")
+            if Choice_b1 == "play":
+                print("'fantastic. We shall begin.'")
+                playerwin = playwordle()
+                if playerwin == True:
+                    print("'it seems you completed my riddle, congratulations. Please, have this cake'")
+                    riddlemaster.give("cake")
+                    print("you recived" + riddlemaster.item )
+                    print("you've beaten the game. congratulations! thanks for playing")  
+                    break
+                    
+                    
+            elif Choice_b1 == "refuse":
+                print("'I understand. It sems you just aren't cool enough. Come back when you find your swag......'")
+                print("you decide to go back to the field for now")
                 break
                 
-                
-        elif Choice_b1 == "refuse":
-            print("'I understand. It sems you just aren't cool enough. Come back when you find your swag......'")
-            print("you decide to go back to the field for now")
-            break
-            
 

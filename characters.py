@@ -15,4 +15,5 @@ class Character:
         if continueinteraction == "y":
             return True
         else:
+            print("you decide to stop talking to them for now")
             return False 

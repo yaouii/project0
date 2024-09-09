@@ -5,11 +5,11 @@ class item:
         self.price = price
       
     
-    inventory = ['']
+    inventory = [ ]
 
     def reciveitem(self, name):
         self.inventory.append(name)# ai filled in this
-        print("you recived" + self.name)
+        print("you recived " + self.name)
         
 
     def checkinventory():
