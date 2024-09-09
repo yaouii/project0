@@ -1,7 +1,18 @@
 class Character:
-    def __init__(self, name, diaogue):
+    def __init__(self, name, diaogue, item, inventory):
         self.name = name
         self.diaogue = diaogue
+        self.item = item # ai filled in this
 
-    def acceptItem(self, item):
-        self.inventory.append(item)
+    inventory = []
+
+    def give(self, item):
+        self.inventory.append(item)# ai filled in this
+
+    def interact(self, diaogue):
+        print(self.diaogue) # ai filled in this
+        continueinteraction = input("Continue talking to them? (y/n)")
+        if continueinteraction == "y":
+            return True
+        else:
+            return False 

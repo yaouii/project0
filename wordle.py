@@ -44,5 +44,6 @@ def playwordle():
 
   # TASK N: After the loop has finished, meaning the user has run out of guesses, check if hint != "GGGGG". If so, the user has lost. Print a lose message. 
   if hint != "GGGGG":
-    print("try again later")
-    return FloatingPointError
+    print("'It seems like you're not ready yet. Come back another time... maybe you'll find something that can help you..'")
+    print("you decide to head back to the field")
+    return False

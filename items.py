@@ -3,10 +3,14 @@ class item:
         self.name = name
         self.description = description
         self.price = price
-        
-    inventory = []
+      
+    
+    inventory = ['']
 
-    def reciveitem(self, item):
-        self.inventory.append(item)
-    
-    
+    def reciveitem(self, name):
+        self.inventory.append(name)# ai filled in this
+        print("you recived" + self.name)
+        
+
+    def checkinventory():
+        print(self.inventory)
