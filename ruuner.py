@@ -1,3 +1,13 @@
+"""
+Handles the main game loop and interactions for the player in the game world.
+
+The `runner.py` module contains the main game loop and handles player interactions with various characters and items in the game world. It includes functionality for:
+- Navigating between a field and a village
+- Interacting with an upset character to guess their favorite color
+- Purchasing items from a vendor in the village
+- Feeding a wombat in the path
+- Interacting with a riddle master character
+"""
 from characters import Character
 from items import item
 from wordle import playwordle
@@ -12,7 +22,7 @@ while True:
     
     if choice_1 == "path":
         while True:
-            print("you go down the path. You eventually see a village")
+            print("you go down the path. You eventually see a village") #ai filled in
             talktoguy = input("There are many people standing around. One of them seems in a bad mood. Talk to them?(y/n) or turn back? (turn)")
             if talktoguy == "y":
                 colorguy = Character("upset guy", "'sigh...'", "5 dollars", [])
@@ -95,21 +105,21 @@ while True:
                         if feed == "y":
                             inventory.remove('snow grass') #ai filled in
                             print("you feed the wombat the snow grass. he looks like he's enjoying it. suddenly he coughs up a green piece of paper. it's a $1000 dollar bill.")
-                            money += 1000 
+                            money += 1000 #ai filled in
                             print("you now have $" + str(money) + " dollars.")
                             break
                         else:
-                            print("you decide not to feed the wombat.")
+                            print("you decide not to feed the wombat.") #ai filled in
                             print("you turn back")
                             break
                     else :
-                        print("you have nothing to give the wombat. You turn back.")
+                        print("you have nothing to give the wombat. You turn back.") #ai filled in
                 elif Choice_a1 == "leave":
                     break
 
 
     elif choice_1 == "turn":
-        print("You turn to see what looks like a wandering riddle master.")
+        print("You turn to see what looks like a wandering riddle master.") #ai filled in
         riddlemaster = Character("Riddle Master", "'greetings...'", "cake", [])
         riddlemasterinteraction = riddlemaster.interact("y") 
 

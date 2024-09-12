@@ -1,3 +1,12 @@
+"""
+Defines the core functionality for the Wordle game.
+
+The `word` variable holds the correct word for the Wordle game.
+
+The `makeAGuess()` function takes a user's guess as a parameter and returns a hint string indicating how many letters in the guess are correct and in the right position ("G"), how many letters are in the word but in the wrong position ("Y"), and how many letters are not in the word ("-").
+
+The `playwordle()` function runs the Wordle game, prompting the user for guesses and printing the hint for each guess. The game continues for 6 guesses, and the function returns `True` if the user guesses the word correctly, or `False` if the user runs out of guesses.
+"""
 
 # TASK A: Define a variable 'word' that holds the correct word for the wordle game
 word = "magic"
