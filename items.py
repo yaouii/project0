@@ -1,4 +1,4 @@
-class item:
+
 """
     Represents an item in the game.
     
@@ -8,7 +8,8 @@ class item:
     
     The `checkinventory` method prints the contents of the player's inventory.
     """
-        def __init__(self, name, description, price):
+class item:
+    def __init__(self, name, description, price):
         self.name = name
         self.description = description
         self.price = price

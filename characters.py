@@ -1,10 +1,11 @@
-class Character:
+
 """
     Represents a character in the game. Each character has a name, dialogue, an item, and an inventory.
     
     The `Character` class provides methods to interact with the character, including giving them an item and printing their dialogue.
     """
-        def __init__(self, name, diaogue, item, inventory):
+class Character:
+    def __init__(self, name, diaogue, item, inventory):
         self.name = name
         self.diaogue = diaogue
         self.item = item # ai filled in this
